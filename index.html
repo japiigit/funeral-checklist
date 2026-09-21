@@ -269,16 +269,22 @@
                     },
                     body: JSON.stringify({
                         requests: [
-                            { type: "execute", stmt: { sql: "SELECT id, completed FROM checklist;" } }
+                            { type: "execute", stmt: { sql: "SELECT id, completed FROM checklist;" } },
+                            { type: "close" }
                         ]
                     })
                 });
 
                 const result = await response.json();
-                const rows = result.results[0].response.result.rows;
+                if (!result.results || result.results[0].error) {
+                    console.error("Turso Query Error:", result);
+                    return;
+                }
 
+                const rows = result.results[0].response.result.rows;
                 const stateMap = {};
                 rows.forEach(row => {
+                    // row[0] is id, row[1] is completed (0 or 1)
                     stateMap[row[0].value] = row[1].value === 1 || row[1].value === true;
                 });
 
@@ -286,7 +292,6 @@
                     const id = cb.getAttribute('data-id');
                     const isChecked = stateMap[id] === true;
                     
-                    // Only update if state differs to avoid interrupting user clicks
                     if (cb.checked !== isChecked) {
                         cb.checked = isChecked;
                         if (isChecked) {
@@ -317,7 +322,7 @@
             const val = isChecked ? 1 : 0;
 
             try {
-                await fetch(TURSO_URL, {
+                const response = await fetch(TURSO_URL, {
                     method: "POST",
                     headers: {
                         "Authorization": `Bearer ${TURSO_TOKEN}`,
@@ -335,17 +340,24 @@
                                         { type: "integer", value: val }
                                     ]
                                 } 
-                            }
+                            },
+                            { type: "close" }
                         ]
                     })
                 });
-                syncStatus.textContent = "🟢 Synced with Turso Database.";
+
+                const result = await response.json();
+                if (result.results && result.results[0].error) {
+                    console.error("Save Error:", result.results[0].error);
+                    syncStatus.textContent = "❌ Failed to save change.";
+                } else {
+                    syncStatus.textContent = "🟢 Synced with Turso Database.";
+                }
             } catch (error) {
                 console.error("Failed to save to Turso:", error);
                 syncStatus.textContent = "❌ Failed to save change.";
             }
         }
-
         checkboxes.forEach(cb => {
             cb.addEventListener('change', (e) => {
                 if (isInitializing) return;
