@@ -247,10 +247,9 @@
         <div class="sync-status" id="sync-status">Connecting to Turso Database...</div>
     </div>
 
-    <script>
-        // TURSO CONFIGURATION (Replace with your database HTTP URL and token)
-        const TURSO_URL = "https://libsql://funeral-checklist-japiitur.aws-eu-west-1.turso.io/v2/pipeline";
-        const TURSO_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTAwMjg4MjYsImlkIjoiMDFhMGM2MDUtZjEwMS03YzU0LTg3MTgtNzc2Y2QxMDQ1NDdmIiwia2lkIjoidkJHLUJCbjVTbUtXRXdWNm5KMVVfcWlOWHViZXFPbFUzVFBnTEtvWjZUTSIsInJpZCI6IjVjMDY4OGRlLTk0NzAtNDQwNi05YTllLThhM2YxMTVmNGNkNSJ9.saYxwvH4AZpqq35t81BR8bSPqyoT3jRR7mL97sr80adssBQyZFDHZP2p9YQS4kKUuVmFDUS2R3wYSq0T1-PwAg";
+  <script>
+        const TURSO_URL = "https://your-database-url.turso.io/v2/pipeline";
+        const TURSO_TOKEN = "YOUR_TURSO_AUTH_TOKEN";
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const progressBar = document.getElementById('progress-bar');
@@ -259,8 +258,8 @@
 
         let isInitializing = true;
 
-        // Fetch state from Turso on page load
-        async function loadStateFromTurso() {
+        // Fetch state from Turso
+        async function loadStateFromTurso(isBackground = false) {
             try {
                 const response = await fetch(TURSO_URL, {
                     method: "POST",
@@ -280,27 +279,34 @@
 
                 const stateMap = {};
                 rows.forEach(row => {
-                    // row[0] is id, row[1] is completed (0 or 1)
                     stateMap[row[0].value] = row[1].value === 1 || row[1].value === true;
                 });
 
                 checkboxes.forEach(cb => {
                     const id = cb.getAttribute('data-id');
                     const isChecked = stateMap[id] === true;
-                    cb.checked = isChecked;
-                    if (isChecked) {
-                        cb.closest('li').classList.add('completed');
-                    } else {
-                        cb.closest('li').classList.remove('completed');
+                    
+                    // Only update if state differs to avoid interrupting user clicks
+                    if (cb.checked !== isChecked) {
+                        cb.checked = isChecked;
+                        if (isChecked) {
+                            cb.closest('li').classList.add('completed');
+                        } else {
+                            cb.closest('li').classList.remove('completed');
+                        }
                     }
                 });
 
                 updateProgress();
                 isInitializing = false;
-                syncStatus.textContent = "🟢 Connected to Turso Database.";
+                if (!isBackground) {
+                    syncStatus.textContent = "🟢 Connected to Turso Database.";
+                }
             } catch (error) {
                 console.error("Failed to load from Turso:", error);
-                syncStatus.textContent = "🔴 Connection error with Turso.";
+                if (!isBackground) {
+                    syncStatus.textContent = "🔴 Connection error with Turso.";
+                }
                 isInitializing = false;
             }
         }
@@ -370,7 +376,11 @@
         }
 
         // Run on load
-        loadStateFromTurso();
-    </script>
-</body>
+        loadStateFromTurso(false);
+
+        // Auto-poll Turso every 3 seconds so other devices sync automatically without manual refresh
+        setInterval(() => {
+            loadStateFromTurso(true);
+        }, 3000);
+    </script></body>
 </html>
