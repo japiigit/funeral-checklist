@@ -247,9 +247,9 @@
         <div class="sync-status" id="sync-status">Connecting to Turso Database...</div>
     </div>
 
-  <script>
+ <script>
         const TURSO_URL = "https://funeral-checklist-japiitur.aws-eu-west-1.turso.io/v2/pipeline";
-        const TURSO_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTAwMjg4MjYsImlkIjoiMDFhMGM2MDUtZjEwMS03YzU0LTg3MTgtNzc2Y2QxMDQ1NDdmIiwia2lkIjoidkJHLUJCbjVTbUtXRXdWNm5KMVVfcWlOWHViZXFPbFUzVFBnTEtvWjZUTSIsInJpZCI6IjVjMDY4OGRlLTk0NzAtNDQwNi05YTllLThhM2YxMTVmNGNkNSJ9.saYxwvH4AZpqq35t81BR8bSPqyoT3jRR7mL97sr80adssBQyZFDHZP2p9YQS4kKUuVmFDUS2R3wYSq0T1-PwAg";
+        const TURSO_TOKEN = "YOUR_TURSO_AUTH_TOKEN";
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const progressBar = document.getElementById('progress-bar');
@@ -257,9 +257,9 @@
         const syncStatus = document.getElementById('sync-status');
 
         let isInitializing = true;
+        const lastInteractionTime = {}; // Cooldown tracker to prevent race conditions
 
-   
-   // Fetch state from Turso
+        // Fetch state from Turso
         async function loadStateFromTurso(isBackground = false) {
             try {
                 const response = await fetch(TURSO_URL, {
@@ -290,8 +290,13 @@
 
                 checkboxes.forEach(cb => {
                     const id = cb.getAttribute('data-id');
-                    const isChecked = stateMap[id] === true;
                     
+                    // Skip updating this item if the user clicked it in the last 6 seconds (prevents snap-back)
+                    if (Date.now() - (lastInteractionTime[id] || 0) < 6000) {
+                        return;
+                    }
+
+                    const isChecked = stateMap[id] === true;
                     if (cb.checked !== isChecked) {
                         cb.checked = isChecked;
                         if (isChecked) {
@@ -320,6 +325,7 @@
         async function saveStateToTurso(id, isChecked) {
             syncStatus.textContent = "Saving to Turso...";
             const val = isChecked ? 1 : 0;
+            lastInteractionTime[id] = Date.now(); // Mark interaction time
 
             try {
                 const response = await fetch(TURSO_URL, {
@@ -353,7 +359,7 @@
                 syncStatus.textContent = "❌ Failed to save change.";
             }
         }
-        
+
         checkboxes.forEach(cb => {
             cb.addEventListener('change', (e) => {
                 if (isInitializing) return;
@@ -386,9 +392,11 @@
         // Run on load
         loadStateFromTurso(false);
 
-        // Auto-poll Turso every 3 seconds so other devices sync automatically without manual refresh
+        // Auto-poll Turso every 3 seconds
         setInterval(() => {
             loadStateFromTurso(true);
         }, 3000);
-    </script></body>
+    </script>
+    
+</body>
 </html>
