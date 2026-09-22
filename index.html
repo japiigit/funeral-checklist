@@ -298,6 +298,67 @@
             font-style: italic;
         }
 
+        .responsible-row {
+            position: relative;
+            margin-top: 8px;
+            margin-left: 35px;
+        }
+
+        .responsible-toggle {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background-color: #eef2ff;
+            color: #3730a3;
+            cursor: pointer;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .responsible-toggle:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .responsible-toggle .responsible-summary {
+            font-weight: 600;
+        }
+
+        .responsible-dropdown {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            z-index: 50;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            padding: 8px 12px;
+            min-width: 160px;
+        }
+
+        .responsible-dropdown[hidden] {
+            display: none;
+        }
+
+        .responsible-dropdown label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .responsible-dropdown input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: #4f46e5;
+            cursor: pointer;
+        }
+
         .sync-status {
             text-align: center;
             font-size: 0.85rem;
@@ -404,192 +465,672 @@
                 <span class="serial-num">1.</span><button type="button" class="status-toggle" id="item-1" data-id="item-1" data-status="0" aria-label="Item status"></button><label for="item-1">Conclude on casket</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-1" data-id="item-1" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-1">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-1" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-1" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">2.</span><button type="button" class="status-toggle" id="item-28" data-id="item-28" data-status="0" aria-label="Item status"></button><label for="item-28">Purchase casket</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-28" data-id="item-28" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-28">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-28" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-28" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">3.</span><button type="button" class="status-toggle" id="item-2" data-id="item-2" data-status="0" aria-label="Item status"></button><label for="item-2">Conclude on ambulance</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-2" data-id="item-2" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-2">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-2" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-2" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">4.</span><button type="button" class="status-toggle" id="item-3" data-id="item-3" data-status="0" aria-label="Item status"></button><label for="item-3">Commit Taylor to make men's uniform</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-3" data-id="item-3" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-3">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-3" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-3" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">5.</span><button type="button" class="status-toggle" id="item-29" data-id="item-29" data-status="0" aria-label="Item status"></button><label for="item-29">Commit Taylor to make lady's uniform</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-29" data-id="item-29" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-29">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-29" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-29" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">6.</span><button type="button" class="status-toggle" id="item-30" data-id="item-30" data-status="0" aria-label="Item status"></button><label for="item-30">Conclude on color for children's uniforms</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-30" data-id="item-30" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-30">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-30" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-30" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">7.</span><button type="button" class="status-toggle" id="item-31" data-id="item-31" data-status="0" aria-label="Item status"></button><label for="item-31">Commit printer to make grandkids T-shirts</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-31" data-id="item-31" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-31">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-31" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-31" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">8.</span><button type="button" class="status-toggle" id="item-32" data-id="item-32" data-status="0" aria-label="Item status"></button><label for="item-32">Conclude on number of goats for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-32" data-id="item-32" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-32">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-32" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-32" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">9.</span><button type="button" class="status-toggle" id="item-33" data-id="item-33" data-status="0" aria-label="Item status"></button><label for="item-33">Total creates of Malt drinks for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-33" data-id="item-33" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-33">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-33" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-33" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">10.</span><button type="button" class="status-toggle" id="item-34" data-id="item-34" data-status="0" aria-label="Item status"></button><label for="item-34">Total creates of Coke, Fanta, Sprite for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-34" data-id="item-34" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-34">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-34" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-34" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">11.</span><button type="button" class="status-toggle" id="item-35" data-id="item-35" data-status="0" aria-label="Item status"></button><label for="item-35">Total creates of drinks for Requiem Mass attendees in Makurdi</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-35" data-id="item-35" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-35">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-35" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-35" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">12.</span><button type="button" class="status-toggle" id="item-36" data-id="item-36" data-status="0" aria-label="Item status"></button><label for="item-36">Total bags of rice needed for feeding of guests throughout</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-36" data-id="item-36" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-36">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-36" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-36" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">13.</span><button type="button" class="status-toggle" id="item-37" data-id="item-37" data-status="0" aria-label="Item status"></button><label for="item-37">Total monetized requirements from us to traditional constituents</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-37" data-id="item-37" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-37">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-37" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-37" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">14.</span><button type="button" class="status-toggle" id="item-38" data-id="item-38" data-status="0" aria-label="Item status"></button><label for="item-38">Pay for gun powder for traditional warrior gun salute</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-38" data-id="item-38" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-38">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-38" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-38" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">15.</span><button type="button" class="status-toggle" id="item-39" data-id="item-39" data-status="0" aria-label="Item status"></button><label for="item-39">Move body to a refrigerated morgue</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-39" data-id="item-39" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-39">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-39" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-39" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">16.</span><button type="button" class="status-toggle" id="item-40" data-id="item-40" data-status="0" aria-label="Item status"></button><label for="item-40">Conclude on busses to transport guests from Makurdi</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-40" data-id="item-40" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-40">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-40" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-40" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">17.</span><button type="button" class="status-toggle" id="item-41" data-id="item-41" data-status="0" aria-label="Item status"></button><label for="item-41">Fix and move Hijet for transportation of goods</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-41" data-id="item-41" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-41">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-41" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-41" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">18.</span><button type="button" class="status-toggle" id="item-42" data-id="item-42" data-status="0" aria-label="Item status"></button><label for="item-42">Initiate request for military security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-42" data-id="item-42" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-42">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-42" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-42" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">19.</span><button type="button" class="status-toggle" id="item-43" data-id="item-43" data-status="0" aria-label="Item status"></button><label for="item-43">Secure military security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-43" data-id="item-43" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-43">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-43" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-43" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">20.</span><button type="button" class="status-toggle" id="item-44" data-id="item-44" data-status="0" aria-label="Item status"></button><label for="item-44">Initiate request for police/paramilitary security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-44" data-id="item-44" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-44">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-44" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-44" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">21.</span><button type="button" class="status-toggle" id="item-45" data-id="item-45" data-status="0" aria-label="Item status"></button><label for="item-45">Secure police/paramilitary security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-45" data-id="item-45" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-45">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-45" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-45" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">22.</span><button type="button" class="status-toggle" id="item-46" data-id="item-46" data-status="0" aria-label="Item status"></button><label for="item-46">Travel to village to announce to elders officially of Papa's funeral date</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-46" data-id="item-46" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-46">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-46" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-46" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">23.</span><button type="button" class="status-toggle" id="item-47" data-id="item-47" data-status="0" aria-label="Item status"></button><label for="item-47">Confirm requirements for Ekeh clan wake keep in Makurdi (29 Sep)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-47" data-id="item-47" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-47">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-47" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-47" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">24.</span><button type="button" class="status-toggle" id="item-48" data-id="item-48" data-status="0" aria-label="Item status"></button><label for="item-48">Confirm requirements for Ajide village wake keep in Makurdi (30 Sep)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-48" data-id="item-48" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-48">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-48" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-48" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">25.</span><button type="button" class="status-toggle" id="item-49" data-id="item-49" data-status="0" aria-label="Item status"></button><label for="item-49">Confirm requirements for Edumoga community (1 Oct)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-49" data-id="item-49" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-49">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-49" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-49" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">26.</span><button type="button" class="status-toggle" id="item-50" data-id="item-50" data-status="0" aria-label="Item status"></button><label for="item-50">Renovation of country home in the village</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-50" data-id="item-50" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-50">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-50" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-50" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">27.</span><button type="button" class="status-toggle" id="item-51" data-id="item-51" data-status="0" aria-label="Item status"></button><label for="item-51">Decide whether to hire a caterer</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-51" data-id="item-51" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-51">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-51" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-51" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">28.</span><button type="button" class="status-toggle" id="item-4" data-id="item-4" data-status="0" aria-label="Item status"></button><label for="item-4">Finalize Papa's biography and life sketch details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-4" data-id="item-4" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-4">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-4" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-4" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">29.</span><button type="button" class="status-toggle" id="item-5" data-id="item-5" data-status="0" aria-label="Item status"></button><label for="item-5">Collect tributes from children, grandchildren, and church societies</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-5" data-id="item-5" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-5">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-5" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-5" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">30.</span><button type="button" class="status-toggle" id="item-6" data-id="item-6" data-status="0" aria-label="Item status"></button><label for="item-6">Collect goodwill messages and condolences from royal fathers, parish priest, and key dignitaries</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-6" data-id="item-6" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-6">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-6" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-6" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">31.</span><button type="button" class="status-toggle" id="item-7" data-id="item-7" data-status="0" aria-label="Item status"></button><label for="item-7">Select readings (Old Testament, Responsorial Psalm, New Testament) and present to Officiating Priest at Youth Center Catholic for approval</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-7" data-id="item-7" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-7">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-7" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-7" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
         <li>
             <div class="item-row">
                 <span class="serial-num">32.</span><button type="button" class="status-toggle" id="item-8" data-id="item-8" data-status="0" aria-label="Item status"></button><label for="item-8">Select hymns for Wake Keep and Requiem Mass and confirm with Choir</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-8" data-id="item-8" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-8">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-8" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-8" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
     </ul>
 </div>
@@ -602,24 +1143,84 @@
                 <span class="serial-num">33.</span><button type="button" class="status-toggle" id="item-9" data-id="item-9" data-status="0" aria-label="Item status"></button><label for="item-9">Review complete booklet draft with family members</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-9" data-id="item-9" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-9">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-9" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-9" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">34.</span><button type="button" class="status-toggle" id="item-10" data-id="item-10" data-status="0" aria-label="Item status"></button><label for="item-10">Send finalized booklet layout to the printer</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-10" data-id="item-10" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-10">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-10" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-10" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">35.</span><button type="button" class="status-toggle" id="item-11" data-id="item-11" data-status="0" aria-label="Item status"></button><label for="item-11">Confirm print quantity for guest program booklets</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-11" data-id="item-11" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-11">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-11" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-11" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">36.</span><button type="button" class="status-toggle" id="item-12" data-id="item-12" data-status="0" aria-label="Item status"></button><label for="item-12">Print souvenir / remembrance items and guest cards</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-12" data-id="item-12" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-12">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-12" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-12" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
             </ul>
         </div>
@@ -632,30 +1233,105 @@
                 <span class="serial-num">37.</span><button type="button" class="status-toggle" id="item-13" data-id="item-13" data-status="0" aria-label="Item status"></button><label for="item-13">Confirm venue setup and sound system</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-13" data-id="item-13" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-13">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-13" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-13" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">38.</span><button type="button" class="status-toggle" id="item-14" data-id="item-14" data-status="0" aria-label="Item status"></button><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-14" data-id="item-14" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-14">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-14" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-14" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">39.</span><button type="button" class="status-toggle" id="item-15" data-id="item-15" data-status="0" aria-label="Item status"></button><label for="item-15">Assign family members for scripture readings and tributes</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-15" data-id="item-15" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-15">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-15" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-15" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">40.</span><button type="button" class="status-toggle" id="item-16" data-id="item-16" data-status="0" aria-label="Item status"></button><label for="item-16">Arrange choir and musical ministration</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-16" data-id="item-16" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-16">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-16" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-16" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">41.</span><button type="button" class="status-toggle" id="item-17" data-id="item-17" data-status="0" aria-label="Item status"></button><label for="item-17">Organize refreshments and catering for guests</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-17" data-id="item-17" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-17">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-17" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-17" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
             </ul>
         </div>
@@ -668,30 +1344,105 @@
                 <span class="serial-num">42.</span><button type="button" class="status-toggle" id="item-18" data-id="item-18" data-status="0" aria-label="Item status"></button><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-18" data-id="item-18" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-18">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-18" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-18" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">43.</span><button type="button" class="status-toggle" id="item-19" data-id="item-19" data-status="0" aria-label="Item status"></button><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-19" data-id="item-19" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-19">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-19" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-19" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">44.</span><button type="button" class="status-toggle" id="item-20" data-id="item-20" data-status="0" aria-label="Item status"></button><label for="item-20">Prepare offertory gifts for the family procession</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-20" data-id="item-20" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-20">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-20" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-20" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">45.</span><button type="button" class="status-toggle" id="item-21" data-id="item-21" data-status="0" aria-label="Item status"></button><label for="item-21">Confirm funeral pall, holy water, and incense arrangements with church servers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-21" data-id="item-21" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-21">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-21" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-21" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">46.</span><button type="button" class="status-toggle" id="item-22" data-id="item-22" data-status="0" aria-label="Item status"></button><label for="item-22">Designate family representative for the Vote of Thanks</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-22" data-id="item-22" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-22">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-22" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-22" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
             </ul>
         </div>
@@ -704,30 +1455,105 @@
                 <span class="serial-num">47.</span><button type="button" class="status-toggle" id="item-23" data-id="item-23" data-status="0" aria-label="Item status"></button><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-23" data-id="item-23" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-23">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-23" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-23" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">48.</span><button type="button" class="status-toggle" id="item-24" data-id="item-24" data-status="0" aria-label="Item status"></button><label for="item-24">Prepare graveside site at the country home / family compound</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-24" data-id="item-24" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-24">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-24" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-24" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">49.</span><button type="button" class="status-toggle" id="item-25" data-id="item-25" data-status="0" aria-label="Item status"></button><label for="item-25">Confirm officiating priest or catechist for graveside committal rites</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-25" data-id="item-25" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-25">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-25" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-25" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">50.</span><button type="button" class="status-toggle" id="item-26" data-id="item-26" data-status="0" aria-label="Item status"></button><label for="item-26">Set up reception area, canopy, seating, and entertainment for returning guests</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-26" data-id="item-26" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-26">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-26" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-26" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
                 <li>
             <div class="item-row">
                 <span class="serial-num">51.</span><button type="button" class="status-toggle" id="item-27" data-id="item-27" data-status="0" aria-label="Item status"></button><label for="item-27">Assign guest coordination contacts and emergency liaisons</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-27" data-id="item-27" placeholder="Add details...">
+        <div class="responsible-row">
+            <button type="button" class="responsible-toggle" data-id="item-27">👤 <span class="responsible-summary">Unassigned</span></button>
+            <div class="responsible-dropdown" id="responsible-dropdown-item-27" hidden>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Agatha"> Agatha</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Vero"> Vero</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Joe"> Joe</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="John"> John</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Tina"> Tina</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Inno"> Inno</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Jojo"> Jojo</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Okosite"> Okosite</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="MummyGO"> MummyGO</label>
+            <label><input type="checkbox" class="responsible-checkbox" data-id="item-27" value="Minkala"> Minkala</label>
+            </div>
+        </div>
         </li>
             </ul>
         </div>
@@ -747,6 +1573,8 @@
 
         const statusButtons = document.querySelectorAll('.status-toggle');
         const detailInputs = document.querySelectorAll('input.detail-input');
+        const responsibleToggles = document.querySelectorAll('.responsible-toggle');
+        const responsibleCheckboxes = document.querySelectorAll('.responsible-checkbox');
 
         const STATUS_ICONS = { 0: '', 1: '–', 2: '✓' };
         const STATUS_CLASS = { 0: null, 1: 'status-partial', 2: 'status-done' };
@@ -761,6 +1589,29 @@
                 li.classList.add(STATUS_CLASS[status]);
             }
         }
+
+        function updateResponsibleSummary(id) {
+            const toggle = document.querySelector(`.responsible-toggle[data-id="${id}"]`);
+            if (!toggle) return;
+            const summary = toggle.querySelector('.responsible-summary');
+            const checked = document.querySelectorAll(`.responsible-checkbox[data-id="${id}"]:checked`);
+            const names = Array.from(checked).map(cb => cb.value);
+            summary.textContent = names.length ? names.join(', ') : 'Unassigned';
+        }
+
+        function applyResponsibleSelection(id, names) {
+            document.querySelectorAll(`.responsible-checkbox[data-id="${id}"]`).forEach(cb => {
+                cb.checked = names.includes(cb.value);
+            });
+            updateResponsibleSummary(id);
+        }
+
+        function closeAllResponsibleDropdowns(except) {
+            document.querySelectorAll('.responsible-dropdown').forEach(dd => {
+                if (dd !== except) dd.hidden = true;
+            });
+        }
+
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
         const syncStatus = document.getElementById('sync-status');
@@ -778,6 +1629,8 @@
             const enable = syncCompleted && authenticated;
             statusButtons.forEach(btn => btn.disabled = !enable);
             detailInputs.forEach(input => input.disabled = !enable);
+            responsibleToggles.forEach(btn => btn.disabled = !enable);
+            responsibleCheckboxes.forEach(cb => cb.disabled = !enable);
         }
 
         function renderAuthBar() {
@@ -869,6 +1722,28 @@
             }
         }
 
+        // Ensure the "responsible" column exists — stores a comma-separated list of assigned names
+        async function ensureResponsibleColumn() {
+            try {
+                await fetch(TURSO_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${TURSO_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        requests: [
+                            { type: "execute", stmt: { sql: "ALTER TABLE checklist ADD COLUMN responsible TEXT;" } },
+                            { type: "close" }
+                        ]
+                    })
+                });
+            } catch (error) {
+                // Ignore — column likely already exists, or will be retried next load
+                console.log("ensureResponsibleColumn:", error);
+            }
+        }
+
         // Fetch state from Turso
         async function loadStateFromTurso(isBackground = false) {
             try {
@@ -880,7 +1755,7 @@
                     },
                     body: JSON.stringify({
                         requests: [
-                            { type: "execute", stmt: { sql: "SELECT id, completed, details, status FROM checklist;" } },
+                            { type: "execute", stmt: { sql: "SELECT id, completed, details, status, responsible FROM checklist;" } },
                             { type: "close" }
                         ]
                     })
@@ -895,6 +1770,7 @@
                 const rows = result.results[0].response.result.rows;
                 const statusMap = {};
                 const detailsMap = {};
+                const responsibleMap = {};
                 rows.forEach(row => {
                     const id = row[0].value;
                     const completedVal = Number(row[1].value) === 1;
@@ -904,6 +1780,7 @@
                         statusVal = completedVal ? 2 : 0;
                     }
                     statusMap[id] = statusVal;
+                    responsibleMap[id] = (row[4] && row[4].value != null) ? row[4].value : '';
                 });
 
                 statusButtons.forEach(btn => {
@@ -918,6 +1795,18 @@
                     if (Number(btn.dataset.status) !== newStatus) {
                         setButtonStatus(btn, newStatus);
                     }
+                });
+
+                responsibleToggles.forEach(btn => {
+                    const id = btn.getAttribute('data-id');
+
+                    // Skip updating this item if the user recently interacted with it
+                    if (Date.now() - (lastInteractionTime[id] || 0) < 6000) {
+                        return;
+                    }
+
+                    const names = (responsibleMap[id] || '').split(',').map(n => n.trim()).filter(Boolean);
+                    applyResponsibleSelection(id, names);
                 });
 
                 detailInputs.forEach(input => {
@@ -1026,6 +1915,46 @@
             }
         }
 
+        // Save the assigned "responsible" names (debounced from the checkbox handler below)
+        async function saveResponsibleToTurso(id, names) {
+            syncStatus.textContent = "Saving to Turso...";
+            const joined = names.join(', ');
+            const escaped = joined.replace(/'/g, "''");
+            lastInteractionTime[id] = Date.now(); // Mark interaction time
+
+            try {
+                const response = await fetch(TURSO_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${TURSO_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        requests: [
+                            {
+                                type: "execute",
+                                stmt: {
+                                    sql: `INSERT INTO checklist (id, completed, responsible) VALUES ('${id}', 0, '${escaped}') ON CONFLICT(id) DO UPDATE SET responsible = '${escaped}';`
+                                }
+                            },
+                            { type: "close" }
+                        ]
+                    })
+                });
+
+                const result = await response.json();
+                if (result.results && result.results[0].error) {
+                    console.error("Save Error:", result.results[0].error);
+                    syncStatus.textContent = "❌ Failed to save change.";
+                } else {
+                    syncStatus.textContent = "🟢 Synced with Turso Database.";
+                }
+            } catch (error) {
+                console.error("Failed to save responsible names to Turso:", error);
+                syncStatus.textContent = "❌ Failed to save change.";
+            }
+        }
+
         statusButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const id = btn.getAttribute('data-id');
@@ -1052,6 +1981,42 @@
                     saveDetailsToTurso(id, value);
                 }, 800);
             });
+        });
+
+        responsibleToggles.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = btn.getAttribute('data-id');
+                const dropdown = document.getElementById(`responsible-dropdown-${id}`);
+                const willOpen = dropdown.hidden;
+                closeAllResponsibleDropdowns();
+                dropdown.hidden = !willOpen;
+            });
+        });
+
+        responsibleCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const id = cb.getAttribute('data-id');
+                const checked = document.querySelectorAll(`.responsible-checkbox[data-id="${id}"]:checked`);
+                const names = Array.from(checked).map(c => c.value);
+
+                updateResponsibleSummary(id);
+                lastInteractionTime[id] = Date.now(); // Mark interaction immediately
+
+                if (detailSaveTimers[`responsible-${id}`]) {
+                    clearTimeout(detailSaveTimers[`responsible-${id}`]);
+                }
+                detailSaveTimers[`responsible-${id}`] = setTimeout(() => {
+                    saveResponsibleToTurso(id, names);
+                }, 500);
+            });
+        });
+
+        // Close any open "Responsible" dropdown when clicking outside it
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.responsible-row')) {
+                closeAllResponsibleDropdowns();
+            }
         });
 
         // Collapsible sections
@@ -1092,11 +2057,14 @@
                 card.querySelectorAll('ul.checklist li').forEach(li => {
                     const label = li.querySelector('label');
                     const detailInput = li.querySelector('.detail-input');
+                    const responsibleSummary = li.querySelector('.responsible-summary');
                     const text = label.dataset.original || label.textContent;
                     const detailText = detailInput ? detailInput.value : '';
+                    const responsibleText = responsibleSummary ? responsibleSummary.textContent : '';
                     const matches = !query
                         || text.toLowerCase().includes(query.toLowerCase())
-                        || detailText.toLowerCase().includes(query.toLowerCase());
+                        || detailText.toLowerCase().includes(query.toLowerCase())
+                        || responsibleText.toLowerCase().includes(query.toLowerCase());
                     li.style.display = matches ? '' : 'none';
                     if (matches) {
                         cardHasMatch = true;
@@ -1134,7 +2102,9 @@
         // Disable interaction until the first sync completes AND the passcode is unlocked
         statusButtons.forEach(btn => btn.disabled = true);
         detailInputs.forEach(input => input.disabled = true);
-        Promise.all([ensureDetailsColumn(), ensureStatusColumn()]).then(() => loadStateFromTurso(false)).then(() => {
+        responsibleToggles.forEach(btn => btn.disabled = true);
+        responsibleCheckboxes.forEach(cb => cb.disabled = true);
+        Promise.all([ensureDetailsColumn(), ensureStatusColumn(), ensureResponsibleColumn()]).then(() => loadStateFromTurso(false)).then(() => {
             syncCompleted = true;
             updateInteractivity();
         });
