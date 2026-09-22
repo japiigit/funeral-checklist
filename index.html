@@ -141,6 +141,11 @@
             accent-color: #22c55e;
         }
 
+        ul.checklist li input[type="checkbox"]:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
         ul.checklist li label {
             cursor: pointer;
             flex-grow: 1;
@@ -256,7 +261,6 @@
         const progressText = document.getElementById('progress-text');
         const syncStatus = document.getElementById('sync-status');
 
-        let isInitializing = true;
         const lastInteractionTime = {}; // Cooldown tracker to prevent race conditions
 
         // Fetch state from Turso
@@ -290,7 +294,7 @@
 
                 checkboxes.forEach(cb => {
                     const id = cb.getAttribute('data-id');
-                    
+
                     // Skip updating this item if the user clicked it in the last 6 seconds (prevents snap-back)
                     if (Date.now() - (lastInteractionTime[id] || 0) < 6000) {
                         return;
@@ -308,7 +312,6 @@
                 });
 
                 updateProgress();
-                isInitializing = false;
                 if (!isBackground) {
                     syncStatus.textContent = "🟢 Connected to Turso Database.";
                 }
@@ -317,7 +320,6 @@
                 if (!isBackground) {
                     syncStatus.textContent = "🔴 Connection error with Turso.";
                 }
-                isInitializing = false;
             }
         }
 
@@ -362,11 +364,9 @@
 
         checkboxes.forEach(cb => {
             cb.addEventListener('change', (e) => {
-                if (isInitializing) return;
-                
                 const id = cb.getAttribute('data-id');
                 const isChecked = cb.checked;
-                
+
                 if (isChecked) {
                     cb.closest('li').classList.add('completed');
                 } else {
@@ -389,8 +389,11 @@
             progressText.textContent = percentage + '% Completed (' + checkedCount + '/' + total + ')';
         }
 
-        // Run on load
-        loadStateFromTurso(false);
+        // Disable interaction until the first sync completes, then run on load
+        checkboxes.forEach(cb => cb.disabled = true);
+        loadStateFromTurso(false).then(() => {
+            checkboxes.forEach(cb => cb.disabled = false);
+        });
 
         // Auto-poll Turso every 3 seconds
         setInterval(() => {
