@@ -257,6 +257,63 @@
             margin-bottom: 30px;
             font-weight: 500;
         }
+
+        .auth-bar {
+            background-color: #fef9c3;
+            border-bottom: 1px solid #eab308;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #713f12;
+        }
+
+        .auth-bar.unlocked {
+            background-color: #dcfce7;
+            border-bottom-color: #22c55e;
+            color: #166534;
+        }
+
+        .auth-bar input[type="password"] {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            width: 140px;
+        }
+
+        .auth-bar button {
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .auth-bar .unlock-btn {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .auth-bar .unlock-btn:hover {
+            background-color: #2563eb;
+        }
+
+        .auth-bar .lock-btn {
+            background-color: transparent;
+            color: #166534;
+            text-decoration: underline;
+        }
+
+        .auth-bar .auth-error {
+            color: #b91c1c;
+            font-size: 0.85rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -264,6 +321,13 @@
     <div class="sticky-nav">
         <h1>🕊️ The Exit of an Icon — Planning Hub</h1>
         <a href="https://docs.google.com/document/d/1vCGN_L9oiA9ro-gZtlC7gnzzCVnK0KlvuXml4kFNcNM/edit?usp=sharing" target="_blank">📄 View Program of Events</a>
+    </div>
+
+    <div id="auth-bar" class="auth-bar">
+        <span id="auth-label">🔒 Read-only mode — enter the family passcode to make changes:</span>
+        <input type="password" id="auth-passcode" placeholder="Passcode" autocomplete="off">
+        <button type="button" class="unlock-btn" id="auth-unlock-btn">Unlock editing</button>
+        <span id="auth-error" class="auth-error">Incorrect passcode.</span>
     </div>
 
     <div class="container">
@@ -614,11 +678,74 @@
         const TURSO_URL = "https://funeral-checklist-japiitur.aws-eu-west-1.turso.io/v2/pipeline";
         const TURSO_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTAwNTUyMDAsImlkIjoiMDFhMGM2MDUtZjEwMS03YzU0LTg3MTgtNzc2Y2QxMDQ1NDdmIiwia2lkIjoidkJHLUJCbjVTbUtXRXdWNm5KMVVfcWlOWHViZXFPbFUzVFBnTEtvWjZUTSIsInJpZCI6IjVjMDY4OGRlLTk0NzAtNDQwNi05YTllLThhM2YxMTVmNGNkNSJ9.k7UPGei6E1kATWWZtZTQQCl1kUzf-2jSVRt4w0qtdCyw2P-a5b69RfstUJg9WZOn4UK_GkGEKhQxXsrMuX2wBQ";
 
+        // Shared family passcode gating who can edit the checklist.
+        // This is a lightweight deterrent, not real security — anyone who views this
+        // page's source can read it. Change the value below to update the passcode.
+        const EDIT_PASSCODE = "PAPA2026";
+        const AUTH_STORAGE_KEY = "funeral-checklist-authed";
+
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const detailInputs = document.querySelectorAll('input.detail-input');
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
         const syncStatus = document.getElementById('sync-status');
+
+        const authBar = document.getElementById('auth-bar');
+        const authLabel = document.getElementById('auth-label');
+        const authInput = document.getElementById('auth-passcode');
+        const authUnlockBtn = document.getElementById('auth-unlock-btn');
+        const authError = document.getElementById('auth-error');
+
+        let syncCompleted = false;
+        let authenticated = localStorage.getItem(AUTH_STORAGE_KEY) === 'true';
+
+        function updateInteractivity() {
+            const enable = syncCompleted && authenticated;
+            checkboxes.forEach(cb => cb.disabled = !enable);
+            detailInputs.forEach(input => input.disabled = !enable);
+        }
+
+        function renderAuthBar() {
+            if (authenticated) {
+                authBar.classList.add('unlocked');
+                authLabel.innerHTML = '🔓 Editing unlocked. <button type="button" class="lock-btn" id="auth-lock-btn">Lock editing</button>';
+                authInput.style.display = 'none';
+                authUnlockBtn.style.display = 'none';
+                authError.style.display = 'none';
+                document.getElementById('auth-lock-btn').addEventListener('click', () => {
+                    authenticated = false;
+                    localStorage.setItem(AUTH_STORAGE_KEY, 'false');
+                    authInput.value = '';
+                    updateInteractivity();
+                    renderAuthBar();
+                });
+            } else {
+                authBar.classList.remove('unlocked');
+                authLabel.textContent = '🔒 Read-only mode — enter the family passcode to make changes:';
+                authInput.style.display = '';
+                authUnlockBtn.style.display = '';
+            }
+        }
+
+        function attemptUnlock() {
+            if (authInput.value === EDIT_PASSCODE) {
+                authenticated = true;
+                localStorage.setItem(AUTH_STORAGE_KEY, 'true');
+                authError.style.display = 'none';
+                authInput.value = '';
+                updateInteractivity();
+                renderAuthBar();
+            } else {
+                authError.style.display = 'inline';
+            }
+        }
+
+        authUnlockBtn.addEventListener('click', attemptUnlock);
+        authInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') attemptUnlock();
+        });
+
+        renderAuthBar();
 
         const lastInteractionTime = {}; // Cooldown tracker to prevent race conditions
         const detailSaveTimers = {};
@@ -906,12 +1033,12 @@
             progressText.textContent = percentage + '% Completed (' + checkedCount + '/' + total + ')';
         }
 
-        // Disable interaction until the first sync completes, then run on load
+        // Disable interaction until the first sync completes AND the passcode is unlocked
         checkboxes.forEach(cb => cb.disabled = true);
         detailInputs.forEach(input => input.disabled = true);
         ensureDetailsColumn().then(() => loadStateFromTurso(false)).then(() => {
-            checkboxes.forEach(cb => cb.disabled = false);
-            detailInputs.forEach(input => input.disabled = false);
+            syncCompleted = true;
+            updateInteractivity();
         });
 
         // Auto-poll Turso every 3 seconds
