@@ -185,13 +185,38 @@
 
         ul.checklist li {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: stretch;
             padding: 10px 12px;
             margin-bottom: 8px;
             border-radius: 6px;
             border: 1px solid transparent;
             transition: all 0.2s ease;
             background-color: #fafafa;
+        }
+
+        ul.checklist li .item-row {
+            display: flex;
+            align-items: center;
+        }
+
+        ul.checklist li input.detail-input {
+            margin-top: 8px;
+            margin-left: 35px;
+            width: calc(100% - 35px);
+            box-sizing: border-box;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+            color: var(--text-color);
+        }
+
+        ul.checklist li input.detail-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
         }
 
         ul.checklist li input[type="checkbox"] {
@@ -261,61 +286,222 @@
       <div class="card">
     <h3><span>1. Pre-Event Planning & Approvals</span><span class="chevron">▾</span></h3>
     <ul class="checklist">
-        <li><input type="checkbox" id="item-1" data-id="item-1"><label for="item-1">Conclude on casket</label></li>
-        <li><input type="checkbox" id="item-28" data-id="item-28"><label for="item-28">Purchase casket</label></li>
-        <li><input type="checkbox" id="item-2" data-id="item-2"><label for="item-2">Conclude on ambulance</label></li>
-        <li><input type="checkbox" id="item-3" data-id="item-3"><label for="item-3">Commit Taylor to make men's uniform</label></li>
-        <li><input type="checkbox" id="item-29" data-id="item-29"><label for="item-29">Commit Taylor to make lady's uniform</label></li>
-        <li><input type="checkbox" id="item-30" data-id="item-30"><label for="item-30">Conclude on color for children's uniforms</label></li>
-        <li><input type="checkbox" id="item-31" data-id="item-31"><label for="item-31">Commit printer to make grandkids T-shirts</label></li>
-        <li><input type="checkbox" id="item-4" data-id="item-4"><label for="item-4">Finalize Papa's biography and life sketch details</label></li>
-        <li><input type="checkbox" id="item-5" data-id="item-5"><label for="item-5">Collect tributes from children, grandchildren, and church societies</label></li>
-        <li><input type="checkbox" id="item-6" data-id="item-6"><label for="item-6">Collect goodwill messages and condolences from royal fathers, parish priest, and key dignitaries</label></li>
-        <li><input type="checkbox" id="item-7" data-id="item-7"><label for="item-7">Select readings (Old Testament, Responsorial Psalm, New Testament) and present to Officiating Priest at Youth Center Catholic for approval</label></li>
-        <li><input type="checkbox" id="item-8" data-id="item-8"><label for="item-8">Select hymns for Wake Keep and Requiem Mass and confirm with Choir</label></li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-1" data-id="item-1"><label for="item-1">Conclude on casket</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-1" data-id="item-1" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-28" data-id="item-28"><label for="item-28">Purchase casket</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-28" data-id="item-28" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-2" data-id="item-2"><label for="item-2">Conclude on ambulance</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-2" data-id="item-2" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-3" data-id="item-3"><label for="item-3">Commit Taylor to make men's uniform</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-3" data-id="item-3" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-29" data-id="item-29"><label for="item-29">Commit Taylor to make lady's uniform</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-29" data-id="item-29" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-30" data-id="item-30"><label for="item-30">Conclude on color for children's uniforms</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-30" data-id="item-30" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-31" data-id="item-31"><label for="item-31">Commit printer to make grandkids T-shirts</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-31" data-id="item-31" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-32" data-id="item-32"><label for="item-32">Conclude on number of goats for villagers</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-32" data-id="item-32" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-4" data-id="item-4"><label for="item-4">Finalize Papa's biography and life sketch details</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-4" data-id="item-4" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-5" data-id="item-5"><label for="item-5">Collect tributes from children, grandchildren, and church societies</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-5" data-id="item-5" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-6" data-id="item-6"><label for="item-6">Collect goodwill messages and condolences from royal fathers, parish priest, and key dignitaries</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-6" data-id="item-6" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-7" data-id="item-7"><label for="item-7">Select readings (Old Testament, Responsorial Psalm, New Testament) and present to Officiating Priest at Youth Center Catholic for approval</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-7" data-id="item-7" placeholder="Add details...">
+        </li>
+        <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-8" data-id="item-8"><label for="item-8">Select hymns for Wake Keep and Requiem Mass and confirm with Choir</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-8" data-id="item-8" placeholder="Add details...">
+        </li>
     </ul>
 </div>
 
         <div class="card">
             <h3><span>2. Program Booklet Printing & Media</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
-                <li><input type="checkbox" id="item-9" data-id="item-9"><label for="item-9">Review complete booklet draft with family members</label></li>
-                <li><input type="checkbox" id="item-10" data-id="item-10"><label for="item-10">Send finalized booklet layout to the printer</label></li>
-                <li><input type="checkbox" id="item-11" data-id="item-11"><label for="item-11">Confirm print quantity for guest program booklets</label></li>
-                <li><input type="checkbox" id="item-12" data-id="item-12"><label for="item-12">Print souvenir / remembrance items and guest cards</label></li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-9" data-id="item-9"><label for="item-9">Review complete booklet draft with family members</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-9" data-id="item-9" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-10" data-id="item-10"><label for="item-10">Send finalized booklet layout to the printer</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-10" data-id="item-10" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-11" data-id="item-11"><label for="item-11">Confirm print quantity for guest program booklets</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-11" data-id="item-11" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-12" data-id="item-12"><label for="item-12">Print souvenir / remembrance items and guest cards</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-12" data-id="item-12" placeholder="Add details...">
+        </li>
             </ul>
         </div>
 
         <div class="card">
             <h3><span>3. Wake Keep / Service of Songs (Friday, Oct 2, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
-                <li><input type="checkbox" id="item-13" data-id="item-13"><label for="item-13">Confirm venue setup and sound system</label></li>
-                <li><input type="checkbox" id="item-14" data-id="item-14"><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label></li>
-                <li><input type="checkbox" id="item-15" data-id="item-15"><label for="item-15">Assign family members for scripture readings and tributes</label></li>
-                <li><input type="checkbox" id="item-16" data-id="item-16"><label for="item-16">Arrange choir and musical ministration</label></li>
-                <li><input type="checkbox" id="item-17" data-id="item-17"><label for="item-17">Organize refreshments and catering for guests</label></li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-13" data-id="item-13"><label for="item-13">Confirm venue setup and sound system</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-13" data-id="item-13" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-14" data-id="item-14"><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-14" data-id="item-14" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-15" data-id="item-15"><label for="item-15">Assign family members for scripture readings and tributes</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-15" data-id="item-15" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-16" data-id="item-16"><label for="item-16">Arrange choir and musical ministration</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-16" data-id="item-16" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-17" data-id="item-17"><label for="item-17">Organize refreshments and catering for guests</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-17" data-id="item-17" placeholder="Add details...">
+        </li>
             </ul>
         </div>
 
         <div class="card">
             <h3><span>4. Requiem Mass (Saturday, Oct 3, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
-                <li><input type="checkbox" id="item-18" data-id="item-18"><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label></li>
-                <li><input type="checkbox" id="item-19" data-id="item-19"><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label></li>
-                <li><input type="checkbox" id="item-20" data-id="item-20"><label for="item-20">Prepare offertory gifts for the family procession</label></li>
-                <li><input type="checkbox" id="item-21" data-id="item-21"><label for="item-21">Confirm funeral pall, holy water, and incense arrangements with church servers</label></li>
-                <li><input type="checkbox" id="item-22" data-id="item-22"><label for="item-22">Designate family representative for the Vote of Thanks</label></li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-18" data-id="item-18"><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-18" data-id="item-18" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-19" data-id="item-19"><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-19" data-id="item-19" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-20" data-id="item-20"><label for="item-20">Prepare offertory gifts for the family procession</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-20" data-id="item-20" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-21" data-id="item-21"><label for="item-21">Confirm funeral pall, holy water, and incense arrangements with church servers</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-21" data-id="item-21" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-22" data-id="item-22"><label for="item-22">Designate family representative for the Vote of Thanks</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-22" data-id="item-22" placeholder="Add details...">
+        </li>
             </ul>
         </div>
 
         <div class="card">
             <h3><span>5. Village Internment & Reception (Saturday, Oct 3, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
-                <li><input type="checkbox" id="item-23" data-id="item-23"><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label></li>
-                <li><input type="checkbox" id="item-24" data-id="item-24"><label for="item-24">Prepare graveside site at the country home / family compound</label></li>
-                <li><input type="checkbox" id="item-25" data-id="item-25"><label for="item-25">Confirm officiating priest or catechist for graveside committal rites</label></li>
-                <li><input type="checkbox" id="item-26" data-id="item-26"><label for="item-26">Set up reception area, canopy, seating, and entertainment for returning guests</label></li>
-                <li><input type="checkbox" id="item-27" data-id="item-27"><label for="item-27">Assign guest coordination contacts and emergency liaisons</label></li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-23" data-id="item-23"><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-23" data-id="item-23" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-24" data-id="item-24"><label for="item-24">Prepare graveside site at the country home / family compound</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-24" data-id="item-24" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-25" data-id="item-25"><label for="item-25">Confirm officiating priest or catechist for graveside committal rites</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-25" data-id="item-25" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-26" data-id="item-26"><label for="item-26">Set up reception area, canopy, seating, and entertainment for returning guests</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-26" data-id="item-26" placeholder="Add details...">
+        </li>
+                <li>
+            <div class="item-row">
+                <input type="checkbox" id="item-27" data-id="item-27"><label for="item-27">Assign guest coordination contacts and emergency liaisons</label>
+            </div>
+            <input type="text" class="detail-input" id="detail-item-27" data-id="item-27" placeholder="Add details...">
+        </li>
             </ul>
         </div>
 
@@ -327,11 +513,35 @@
         const TURSO_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTAwNTUyMDAsImlkIjoiMDFhMGM2MDUtZjEwMS03YzU0LTg3MTgtNzc2Y2QxMDQ1NDdmIiwia2lkIjoidkJHLUJCbjVTbUtXRXdWNm5KMVVfcWlOWHViZXFPbFUzVFBnTEtvWjZUTSIsInJpZCI6IjVjMDY4OGRlLTk0NzAtNDQwNi05YTllLThhM2YxMTVmNGNkNSJ9.k7UPGei6E1kATWWZtZTQQCl1kUzf-2jSVRt4w0qtdCyw2P-a5b69RfstUJg9WZOn4UK_GkGEKhQxXsrMuX2wBQ";
 
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const detailInputs = document.querySelectorAll('input.detail-input');
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
         const syncStatus = document.getElementById('sync-status');
 
         const lastInteractionTime = {}; // Cooldown tracker to prevent race conditions
+        const detailSaveTimers = {};
+
+        // Ensure the "details" column exists (safe to call every load; ignores "duplicate column" error)
+        async function ensureDetailsColumn() {
+            try {
+                await fetch(TURSO_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${TURSO_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        requests: [
+                            { type: "execute", stmt: { sql: "ALTER TABLE checklist ADD COLUMN details TEXT;" } },
+                            { type: "close" }
+                        ]
+                    })
+                });
+            } catch (error) {
+                // Ignore — column likely already exists, or will be retried next load
+                console.log("ensureDetailsColumn:", error);
+            }
+        }
 
         // Fetch state from Turso
         async function loadStateFromTurso(isBackground = false) {
@@ -344,7 +554,7 @@
                     },
                     body: JSON.stringify({
                         requests: [
-                            { type: "execute", stmt: { sql: "SELECT id, completed FROM checklist;" } },
+                            { type: "execute", stmt: { sql: "SELECT id, completed, details FROM checklist;" } },
                             { type: "close" }
                         ]
                     })
@@ -358,8 +568,11 @@
 
                 const rows = result.results[0].response.result.rows;
                 const stateMap = {};
+                const detailsMap = {};
                 rows.forEach(row => {
-                    stateMap[row[0].value] = Number(row[1].value) === 1;
+                    const id = row[0].value;
+                    stateMap[id] = Number(row[1].value) === 1;
+                    detailsMap[id] = (row[2] && row[2].value != null) ? row[2].value : '';
                 });
 
                 checkboxes.forEach(cb => {
@@ -378,6 +591,21 @@
                         } else {
                             cb.closest('li').classList.remove('completed');
                         }
+                    }
+                });
+
+                detailInputs.forEach(input => {
+                    const id = input.getAttribute('data-id');
+
+                    // Skip if the user is actively editing this field or recently interacted with it
+                    if (document.activeElement === input) return;
+                    if (Date.now() - (lastInteractionTime[id] || 0) < 6000) {
+                        return;
+                    }
+
+                    const detailValue = detailsMap[id] || '';
+                    if (input.value !== detailValue) {
+                        input.value = detailValue;
                     }
                 });
 
@@ -432,6 +660,45 @@
             }
         }
 
+        // Save a detail note to Turso (debounced from the input handler below)
+        async function saveDetailsToTurso(id, text) {
+            syncStatus.textContent = "Saving to Turso...";
+            const escaped = text.replace(/'/g, "''");
+            lastInteractionTime[id] = Date.now(); // Mark interaction time
+
+            try {
+                const response = await fetch(TURSO_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${TURSO_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        requests: [
+                            {
+                                type: "execute",
+                                stmt: {
+                                    sql: `INSERT INTO checklist (id, completed, details) VALUES ('${id}', 0, '${escaped}') ON CONFLICT(id) DO UPDATE SET details = '${escaped}';`
+                                }
+                            },
+                            { type: "close" }
+                        ]
+                    })
+                });
+
+                const result = await response.json();
+                if (result.results && result.results[0].error) {
+                    console.error("Save Error:", result.results[0].error);
+                    syncStatus.textContent = "❌ Failed to save change.";
+                } else {
+                    syncStatus.textContent = "🟢 Synced with Turso Database.";
+                }
+            } catch (error) {
+                console.error("Failed to save details to Turso:", error);
+                syncStatus.textContent = "❌ Failed to save change.";
+            }
+        }
+
         checkboxes.forEach(cb => {
             cb.addEventListener('change', (e) => {
                 const id = cb.getAttribute('data-id');
@@ -445,6 +712,22 @@
                 updateProgress();
 
                 saveStateToTurso(id, isChecked);
+            });
+        });
+
+        detailInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const id = input.getAttribute('data-id');
+                const value = input.value;
+
+                lastInteractionTime[id] = Date.now(); // Mark interaction immediately so polling doesn't overwrite while typing
+
+                if (detailSaveTimers[id]) {
+                    clearTimeout(detailSaveTimers[id]);
+                }
+                detailSaveTimers[id] = setTimeout(() => {
+                    saveDetailsToTurso(id, value);
+                }, 800);
             });
         });
 
@@ -485,8 +768,12 @@
                 let cardHasMatch = false;
                 card.querySelectorAll('ul.checklist li').forEach(li => {
                     const label = li.querySelector('label');
+                    const detailInput = li.querySelector('.detail-input');
                     const text = label.dataset.original || label.textContent;
-                    const matches = !query || text.toLowerCase().includes(query.toLowerCase());
+                    const detailText = detailInput ? detailInput.value : '';
+                    const matches = !query
+                        || text.toLowerCase().includes(query.toLowerCase())
+                        || detailText.toLowerCase().includes(query.toLowerCase());
                     li.style.display = matches ? '' : 'none';
                     if (matches) {
                         cardHasMatch = true;
@@ -519,8 +806,10 @@
 
         // Disable interaction until the first sync completes, then run on load
         checkboxes.forEach(cb => cb.disabled = true);
-        loadStateFromTurso(false).then(() => {
+        detailInputs.forEach(input => input.disabled = true);
+        ensureDetailsColumn().then(() => loadStateFromTurso(false)).then(() => {
             checkboxes.forEach(cb => cb.disabled = false);
+            detailInputs.forEach(input => input.disabled = false);
         });
 
         // Auto-poll Turso every 3 seconds
