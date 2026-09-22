@@ -219,17 +219,41 @@
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
         }
 
-        ul.checklist li input[type="checkbox"] {
+        ul.checklist li .status-toggle {
             width: 20px;
             height: 20px;
+            min-width: 20px;
             margin-right: 15px;
             cursor: pointer;
-            accent-color: #22c55e;
+            border-radius: 4px;
+            border: 2px solid var(--border-color);
+            background-color: #ffffff;
+            padding: 0;
+            font-size: 0.8rem;
+            line-height: 1;
+            font-weight: 700;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
         }
 
-        ul.checklist li input[type="checkbox"]:disabled {
+        ul.checklist li .status-toggle:disabled {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: 0.6;
+        }
+
+        ul.checklist li .status-toggle[data-status="1"] {
+            background-color: #f59e0b;
+            border-color: #b45309;
+            color: white;
+        }
+
+        ul.checklist li .status-toggle[data-status="2"] {
+            background-color: #22c55e;
+            border-color: #16a34a;
+            color: white;
         }
 
         ul.checklist li label {
@@ -239,14 +263,24 @@
             user-select: none;
         }
 
-        ul.checklist li.completed {
+        ul.checklist li.status-done {
             background-color: var(--success-color);
             border-color: var(--success-border);
         }
 
-        ul.checklist li.completed label {
+        ul.checklist li.status-done label {
             text-decoration: line-through;
             color: #166534;
+        }
+
+        ul.checklist li.status-partial {
+            background-color: #fef3c7;
+            border-color: #f59e0b;
+        }
+
+        ul.checklist li.status-partial label {
+            color: #92400e;
+            font-style: italic;
         }
 
         .sync-status {
@@ -352,187 +386,187 @@
     <ul class="checklist">
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-1" data-id="item-1"><label for="item-1">Conclude on casket</label>
+                <button type="button" class="status-toggle" id="item-1" data-id="item-1" data-status="0" aria-label="Item status"></button><label for="item-1">Conclude on casket</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-1" data-id="item-1" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-28" data-id="item-28"><label for="item-28">Purchase casket</label>
+                <button type="button" class="status-toggle" id="item-28" data-id="item-28" data-status="0" aria-label="Item status"></button><label for="item-28">Purchase casket</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-28" data-id="item-28" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-2" data-id="item-2"><label for="item-2">Conclude on ambulance</label>
+                <button type="button" class="status-toggle" id="item-2" data-id="item-2" data-status="0" aria-label="Item status"></button><label for="item-2">Conclude on ambulance</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-2" data-id="item-2" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-3" data-id="item-3"><label for="item-3">Commit Taylor to make men's uniform</label>
+                <button type="button" class="status-toggle" id="item-3" data-id="item-3" data-status="0" aria-label="Item status"></button><label for="item-3">Commit Taylor to make men's uniform</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-3" data-id="item-3" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-29" data-id="item-29"><label for="item-29">Commit Taylor to make lady's uniform</label>
+                <button type="button" class="status-toggle" id="item-29" data-id="item-29" data-status="0" aria-label="Item status"></button><label for="item-29">Commit Taylor to make lady's uniform</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-29" data-id="item-29" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-30" data-id="item-30"><label for="item-30">Conclude on color for children's uniforms</label>
+                <button type="button" class="status-toggle" id="item-30" data-id="item-30" data-status="0" aria-label="Item status"></button><label for="item-30">Conclude on color for children's uniforms</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-30" data-id="item-30" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-31" data-id="item-31"><label for="item-31">Commit printer to make grandkids T-shirts</label>
+                <button type="button" class="status-toggle" id="item-31" data-id="item-31" data-status="0" aria-label="Item status"></button><label for="item-31">Commit printer to make grandkids T-shirts</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-31" data-id="item-31" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-32" data-id="item-32"><label for="item-32">Conclude on number of goats for villagers</label>
+                <button type="button" class="status-toggle" id="item-32" data-id="item-32" data-status="0" aria-label="Item status"></button><label for="item-32">Conclude on number of goats for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-32" data-id="item-32" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-33" data-id="item-33"><label for="item-33">Total creates of Malt drinks for villagers</label>
+                <button type="button" class="status-toggle" id="item-33" data-id="item-33" data-status="0" aria-label="Item status"></button><label for="item-33">Total creates of Malt drinks for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-33" data-id="item-33" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-34" data-id="item-34"><label for="item-34">Total creates of Coke, Fanta, Sprite for villagers</label>
+                <button type="button" class="status-toggle" id="item-34" data-id="item-34" data-status="0" aria-label="Item status"></button><label for="item-34">Total creates of Coke, Fanta, Sprite for villagers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-34" data-id="item-34" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-35" data-id="item-35"><label for="item-35">Total creates of drinks for Requiem Mass attendees in Makurdi</label>
+                <button type="button" class="status-toggle" id="item-35" data-id="item-35" data-status="0" aria-label="Item status"></button><label for="item-35">Total creates of drinks for Requiem Mass attendees in Makurdi</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-35" data-id="item-35" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-36" data-id="item-36"><label for="item-36">Total bags of rice needed for feeding of guests throughout</label>
+                <button type="button" class="status-toggle" id="item-36" data-id="item-36" data-status="0" aria-label="Item status"></button><label for="item-36">Total bags of rice needed for feeding of guests throughout</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-36" data-id="item-36" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-37" data-id="item-37"><label for="item-37">Total monetized requirements from us to traditional constituents</label>
+                <button type="button" class="status-toggle" id="item-37" data-id="item-37" data-status="0" aria-label="Item status"></button><label for="item-37">Total monetized requirements from us to traditional constituents</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-37" data-id="item-37" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-38" data-id="item-38"><label for="item-38">Pay for gun powder for traditional warrior gun salute</label>
+                <button type="button" class="status-toggle" id="item-38" data-id="item-38" data-status="0" aria-label="Item status"></button><label for="item-38">Pay for gun powder for traditional warrior gun salute</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-38" data-id="item-38" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-39" data-id="item-39"><label for="item-39">Move body to a refrigerated morgue</label>
+                <button type="button" class="status-toggle" id="item-39" data-id="item-39" data-status="0" aria-label="Item status"></button><label for="item-39">Move body to a refrigerated morgue</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-39" data-id="item-39" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-40" data-id="item-40"><label for="item-40">Conclude on busses to transport guests from Makurdi</label>
+                <button type="button" class="status-toggle" id="item-40" data-id="item-40" data-status="0" aria-label="Item status"></button><label for="item-40">Conclude on busses to transport guests from Makurdi</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-40" data-id="item-40" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-41" data-id="item-41"><label for="item-41">Fix and move Hijet for transportation of goods</label>
+                <button type="button" class="status-toggle" id="item-41" data-id="item-41" data-status="0" aria-label="Item status"></button><label for="item-41">Fix and move Hijet for transportation of goods</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-41" data-id="item-41" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-42" data-id="item-42"><label for="item-42">Initiate request for military security details</label>
+                <button type="button" class="status-toggle" id="item-42" data-id="item-42" data-status="0" aria-label="Item status"></button><label for="item-42">Initiate request for military security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-42" data-id="item-42" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-43" data-id="item-43"><label for="item-43">Secure military security details</label>
+                <button type="button" class="status-toggle" id="item-43" data-id="item-43" data-status="0" aria-label="Item status"></button><label for="item-43">Secure military security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-43" data-id="item-43" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-44" data-id="item-44"><label for="item-44">Initiate request for police/paramilitary security details</label>
+                <button type="button" class="status-toggle" id="item-44" data-id="item-44" data-status="0" aria-label="Item status"></button><label for="item-44">Initiate request for police/paramilitary security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-44" data-id="item-44" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-45" data-id="item-45"><label for="item-45">Secure police/paramilitary security details</label>
+                <button type="button" class="status-toggle" id="item-45" data-id="item-45" data-status="0" aria-label="Item status"></button><label for="item-45">Secure police/paramilitary security details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-45" data-id="item-45" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-46" data-id="item-46"><label for="item-46">Travel to village to announce to elders officially of Papa's funeral date</label>
+                <button type="button" class="status-toggle" id="item-46" data-id="item-46" data-status="0" aria-label="Item status"></button><label for="item-46">Travel to village to announce to elders officially of Papa's funeral date</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-46" data-id="item-46" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-47" data-id="item-47"><label for="item-47">Confirm requirements for Ekeh clan wake keep in Makurdi (29 Sep)</label>
+                <button type="button" class="status-toggle" id="item-47" data-id="item-47" data-status="0" aria-label="Item status"></button><label for="item-47">Confirm requirements for Ekeh clan wake keep in Makurdi (29 Sep)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-47" data-id="item-47" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-48" data-id="item-48"><label for="item-48">Confirm requirements for Ajide village wake keep in Makurdi (30 Sep)</label>
+                <button type="button" class="status-toggle" id="item-48" data-id="item-48" data-status="0" aria-label="Item status"></button><label for="item-48">Confirm requirements for Ajide village wake keep in Makurdi (30 Sep)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-48" data-id="item-48" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-49" data-id="item-49"><label for="item-49">Confirm requirements for Edumoga community (1 Oct)</label>
+                <button type="button" class="status-toggle" id="item-49" data-id="item-49" data-status="0" aria-label="Item status"></button><label for="item-49">Confirm requirements for Edumoga community (1 Oct)</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-49" data-id="item-49" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-50" data-id="item-50"><label for="item-50">Renovation of country home in the village</label>
+                <button type="button" class="status-toggle" id="item-50" data-id="item-50" data-status="0" aria-label="Item status"></button><label for="item-50">Renovation of country home in the village</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-50" data-id="item-50" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-4" data-id="item-4"><label for="item-4">Finalize Papa's biography and life sketch details</label>
+                <button type="button" class="status-toggle" id="item-4" data-id="item-4" data-status="0" aria-label="Item status"></button><label for="item-4">Finalize Papa's biography and life sketch details</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-4" data-id="item-4" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-5" data-id="item-5"><label for="item-5">Collect tributes from children, grandchildren, and church societies</label>
+                <button type="button" class="status-toggle" id="item-5" data-id="item-5" data-status="0" aria-label="Item status"></button><label for="item-5">Collect tributes from children, grandchildren, and church societies</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-5" data-id="item-5" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-6" data-id="item-6"><label for="item-6">Collect goodwill messages and condolences from royal fathers, parish priest, and key dignitaries</label>
+                <button type="button" class="status-toggle" id="item-6" data-id="item-6" data-status="0" aria-label="Item status"></button><label for="item-6">Collect goodwill messages and condolences from royal fathers, parish priest, and key dignitaries</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-6" data-id="item-6" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-7" data-id="item-7"><label for="item-7">Select readings (Old Testament, Responsorial Psalm, New Testament) and present to Officiating Priest at Youth Center Catholic for approval</label>
+                <button type="button" class="status-toggle" id="item-7" data-id="item-7" data-status="0" aria-label="Item status"></button><label for="item-7">Select readings (Old Testament, Responsorial Psalm, New Testament) and present to Officiating Priest at Youth Center Catholic for approval</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-7" data-id="item-7" placeholder="Add details...">
         </li>
         <li>
             <div class="item-row">
-                <input type="checkbox" id="item-8" data-id="item-8"><label for="item-8">Select hymns for Wake Keep and Requiem Mass and confirm with Choir</label>
+                <button type="button" class="status-toggle" id="item-8" data-id="item-8" data-status="0" aria-label="Item status"></button><label for="item-8">Select hymns for Wake Keep and Requiem Mass and confirm with Choir</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-8" data-id="item-8" placeholder="Add details...">
         </li>
@@ -544,25 +578,25 @@
             <ul class="checklist">
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-9" data-id="item-9"><label for="item-9">Review complete booklet draft with family members</label>
+                <button type="button" class="status-toggle" id="item-9" data-id="item-9" data-status="0" aria-label="Item status"></button><label for="item-9">Review complete booklet draft with family members</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-9" data-id="item-9" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-10" data-id="item-10"><label for="item-10">Send finalized booklet layout to the printer</label>
+                <button type="button" class="status-toggle" id="item-10" data-id="item-10" data-status="0" aria-label="Item status"></button><label for="item-10">Send finalized booklet layout to the printer</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-10" data-id="item-10" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-11" data-id="item-11"><label for="item-11">Confirm print quantity for guest program booklets</label>
+                <button type="button" class="status-toggle" id="item-11" data-id="item-11" data-status="0" aria-label="Item status"></button><label for="item-11">Confirm print quantity for guest program booklets</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-11" data-id="item-11" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-12" data-id="item-12"><label for="item-12">Print souvenir / remembrance items and guest cards</label>
+                <button type="button" class="status-toggle" id="item-12" data-id="item-12" data-status="0" aria-label="Item status"></button><label for="item-12">Print souvenir / remembrance items and guest cards</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-12" data-id="item-12" placeholder="Add details...">
         </li>
@@ -574,31 +608,31 @@
             <ul class="checklist">
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-13" data-id="item-13"><label for="item-13">Confirm venue setup and sound system</label>
+                <button type="button" class="status-toggle" id="item-13" data-id="item-13" data-status="0" aria-label="Item status"></button><label for="item-13">Confirm venue setup and sound system</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-13" data-id="item-13" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-14" data-id="item-14"><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label>
+                <button type="button" class="status-toggle" id="item-14" data-id="item-14" data-status="0" aria-label="Item status"></button><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-14" data-id="item-14" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-15" data-id="item-15"><label for="item-15">Assign family members for scripture readings and tributes</label>
+                <button type="button" class="status-toggle" id="item-15" data-id="item-15" data-status="0" aria-label="Item status"></button><label for="item-15">Assign family members for scripture readings and tributes</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-15" data-id="item-15" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-16" data-id="item-16"><label for="item-16">Arrange choir and musical ministration</label>
+                <button type="button" class="status-toggle" id="item-16" data-id="item-16" data-status="0" aria-label="Item status"></button><label for="item-16">Arrange choir and musical ministration</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-16" data-id="item-16" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-17" data-id="item-17"><label for="item-17">Organize refreshments and catering for guests</label>
+                <button type="button" class="status-toggle" id="item-17" data-id="item-17" data-status="0" aria-label="Item status"></button><label for="item-17">Organize refreshments and catering for guests</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-17" data-id="item-17" placeholder="Add details...">
         </li>
@@ -610,31 +644,31 @@
             <ul class="checklist">
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-18" data-id="item-18"><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label>
+                <button type="button" class="status-toggle" id="item-18" data-id="item-18" data-status="0" aria-label="Item status"></button><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-18" data-id="item-18" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-19" data-id="item-19"><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label>
+                <button type="button" class="status-toggle" id="item-19" data-id="item-19" data-status="0" aria-label="Item status"></button><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-19" data-id="item-19" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-20" data-id="item-20"><label for="item-20">Prepare offertory gifts for the family procession</label>
+                <button type="button" class="status-toggle" id="item-20" data-id="item-20" data-status="0" aria-label="Item status"></button><label for="item-20">Prepare offertory gifts for the family procession</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-20" data-id="item-20" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-21" data-id="item-21"><label for="item-21">Confirm funeral pall, holy water, and incense arrangements with church servers</label>
+                <button type="button" class="status-toggle" id="item-21" data-id="item-21" data-status="0" aria-label="Item status"></button><label for="item-21">Confirm funeral pall, holy water, and incense arrangements with church servers</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-21" data-id="item-21" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-22" data-id="item-22"><label for="item-22">Designate family representative for the Vote of Thanks</label>
+                <button type="button" class="status-toggle" id="item-22" data-id="item-22" data-status="0" aria-label="Item status"></button><label for="item-22">Designate family representative for the Vote of Thanks</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-22" data-id="item-22" placeholder="Add details...">
         </li>
@@ -646,31 +680,31 @@
             <ul class="checklist">
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-23" data-id="item-23"><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label>
+                <button type="button" class="status-toggle" id="item-23" data-id="item-23" data-status="0" aria-label="Item status"></button><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-23" data-id="item-23" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-24" data-id="item-24"><label for="item-24">Prepare graveside site at the country home / family compound</label>
+                <button type="button" class="status-toggle" id="item-24" data-id="item-24" data-status="0" aria-label="Item status"></button><label for="item-24">Prepare graveside site at the country home / family compound</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-24" data-id="item-24" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-25" data-id="item-25"><label for="item-25">Confirm officiating priest or catechist for graveside committal rites</label>
+                <button type="button" class="status-toggle" id="item-25" data-id="item-25" data-status="0" aria-label="Item status"></button><label for="item-25">Confirm officiating priest or catechist for graveside committal rites</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-25" data-id="item-25" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-26" data-id="item-26"><label for="item-26">Set up reception area, canopy, seating, and entertainment for returning guests</label>
+                <button type="button" class="status-toggle" id="item-26" data-id="item-26" data-status="0" aria-label="Item status"></button><label for="item-26">Set up reception area, canopy, seating, and entertainment for returning guests</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-26" data-id="item-26" placeholder="Add details...">
         </li>
                 <li>
             <div class="item-row">
-                <input type="checkbox" id="item-27" data-id="item-27"><label for="item-27">Assign guest coordination contacts and emergency liaisons</label>
+                <button type="button" class="status-toggle" id="item-27" data-id="item-27" data-status="0" aria-label="Item status"></button><label for="item-27">Assign guest coordination contacts and emergency liaisons</label>
             </div>
             <input type="text" class="detail-input" id="detail-item-27" data-id="item-27" placeholder="Add details...">
         </li>
@@ -690,8 +724,22 @@
         const EDIT_PASSCODE = "PAPA2026";
         const AUTH_STORAGE_KEY = "funeral-checklist-authed";
 
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const statusButtons = document.querySelectorAll('.status-toggle');
         const detailInputs = document.querySelectorAll('input.detail-input');
+
+        const STATUS_ICONS = { 0: '', 1: '–', 2: '✓' };
+        const STATUS_CLASS = { 0: null, 1: 'status-partial', 2: 'status-done' };
+
+        function setButtonStatus(btn, status) {
+            status = Number(status);
+            btn.dataset.status = status;
+            btn.textContent = STATUS_ICONS[status] || '';
+            const li = btn.closest('li');
+            li.classList.remove('status-partial', 'status-done');
+            if (STATUS_CLASS[status]) {
+                li.classList.add(STATUS_CLASS[status]);
+            }
+        }
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
         const syncStatus = document.getElementById('sync-status');
@@ -707,7 +755,7 @@
 
         function updateInteractivity() {
             const enable = syncCompleted && authenticated;
-            checkboxes.forEach(cb => cb.disabled = !enable);
+            statusButtons.forEach(btn => btn.disabled = !enable);
             detailInputs.forEach(input => input.disabled = !enable);
         }
 
@@ -778,6 +826,28 @@
             }
         }
 
+        // Ensure the "status" column exists: 0 = not started, 1 = partial (amber), 2 = done (green)
+        async function ensureStatusColumn() {
+            try {
+                await fetch(TURSO_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${TURSO_TOKEN}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        requests: [
+                            { type: "execute", stmt: { sql: "ALTER TABLE checklist ADD COLUMN status INTEGER;" } },
+                            { type: "close" }
+                        ]
+                    })
+                });
+            } catch (error) {
+                // Ignore — column likely already exists, or will be retried next load
+                console.log("ensureStatusColumn:", error);
+            }
+        }
+
         // Fetch state from Turso
         async function loadStateFromTurso(isBackground = false) {
             try {
@@ -789,7 +859,7 @@
                     },
                     body: JSON.stringify({
                         requests: [
-                            { type: "execute", stmt: { sql: "SELECT id, completed, details FROM checklist;" } },
+                            { type: "execute", stmt: { sql: "SELECT id, completed, details, status FROM checklist;" } },
                             { type: "close" }
                         ]
                     })
@@ -802,30 +872,30 @@
                 }
 
                 const rows = result.results[0].response.result.rows;
-                const stateMap = {};
+                const statusMap = {};
                 const detailsMap = {};
                 rows.forEach(row => {
                     const id = row[0].value;
-                    stateMap[id] = Number(row[1].value) === 1;
+                    const completedVal = Number(row[1].value) === 1;
                     detailsMap[id] = (row[2] && row[2].value != null) ? row[2].value : '';
+                    let statusVal = (row[3] && row[3].value != null) ? Number(row[3].value) : (completedVal ? 2 : 0);
+                    if (![0, 1, 2].includes(statusVal)) {
+                        statusVal = completedVal ? 2 : 0;
+                    }
+                    statusMap[id] = statusVal;
                 });
 
-                checkboxes.forEach(cb => {
-                    const id = cb.getAttribute('data-id');
+                statusButtons.forEach(btn => {
+                    const id = btn.getAttribute('data-id');
 
                     // Skip updating this item if the user clicked it in the last 6 seconds (prevents snap-back)
                     if (Date.now() - (lastInteractionTime[id] || 0) < 6000) {
                         return;
                     }
 
-                    const isChecked = stateMap[id] === true;
-                    if (cb.checked !== isChecked) {
-                        cb.checked = isChecked;
-                        if (isChecked) {
-                            cb.closest('li').classList.add('completed');
-                        } else {
-                            cb.closest('li').classList.remove('completed');
-                        }
+                    const newStatus = statusMap[id] !== undefined ? statusMap[id] : 0;
+                    if (Number(btn.dataset.status) !== newStatus) {
+                        setButtonStatus(btn, newStatus);
                     }
                 });
 
@@ -856,10 +926,11 @@
             }
         }
 
-        // Save state change to Turso when clicked
-        async function saveStateToTurso(id, isChecked) {
+        // Save status change to Turso when clicked (0 = not started, 1 = partial, 2 = done)
+        async function saveStatusToTurso(id, status) {
             syncStatus.textContent = "Saving to Turso...";
-            const val = isChecked ? 1 : 0;
+            const statusVal = Number(status);
+            const completedVal = statusVal === 2 ? 1 : 0; // kept in sync for backward compatibility
             lastInteractionTime[id] = Date.now(); // Mark interaction time
 
             try {
@@ -874,7 +945,7 @@
                             { 
                                 type: "execute", 
                                 stmt: { 
-                                    sql: `INSERT INTO checklist (id, completed) VALUES ('${id}', ${val}) ON CONFLICT(id) DO UPDATE SET completed = ${val};`
+                                    sql: `INSERT INTO checklist (id, completed, status) VALUES ('${id}', ${completedVal}, ${statusVal}) ON CONFLICT(id) DO UPDATE SET completed = ${completedVal}, status = ${statusVal};`
                                 } 
                             },
                             { type: "close" }
@@ -934,19 +1005,15 @@
             }
         }
 
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', (e) => {
-                const id = cb.getAttribute('data-id');
-                const isChecked = cb.checked;
+        statusButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                const nextStatus = (Number(btn.dataset.status) + 1) % 3;
 
-                if (isChecked) {
-                    cb.closest('li').classList.add('completed');
-                } else {
-                    cb.closest('li').classList.remove('completed');
-                }
+                setButtonStatus(btn, nextStatus);
                 updateProgress();
 
-                saveStateToTurso(id, isChecked);
+                saveStatusToTurso(id, nextStatus);
             });
         });
 
@@ -1029,20 +1096,24 @@
         });
 
         function updateProgress() {
-            const total = checkboxes.length;
-            let checkedCount = 0;
-            checkboxes.forEach(cb => {
-                if (cb.checked) checkedCount++;
+            const total = statusButtons.length;
+            let doneCount = 0;
+            let partialCount = 0;
+            statusButtons.forEach(btn => {
+                const s = Number(btn.dataset.status);
+                if (s === 2) doneCount++;
+                else if (s === 1) partialCount++;
             });
-            const percentage = Math.round((checkedCount / total) * 100);
+            const notStarted = total - doneCount - partialCount;
+            const percentage = Math.round(((doneCount + partialCount * 0.5) / total) * 100);
             progressBar.style.width = percentage + '%';
-            progressText.textContent = percentage + '% Completed (' + checkedCount + '/' + total + ')';
+            progressText.textContent = percentage + '% Completed (' + doneCount + ' done, ' + partialCount + ' in progress, ' + notStarted + ' not started)';
         }
 
         // Disable interaction until the first sync completes AND the passcode is unlocked
-        checkboxes.forEach(cb => cb.disabled = true);
+        statusButtons.forEach(btn => btn.disabled = true);
         detailInputs.forEach(input => input.disabled = true);
-        ensureDetailsColumn().then(() => loadStateFromTurso(false)).then(() => {
+        Promise.all([ensureDetailsColumn(), ensureStatusColumn()]).then(() => loadStateFromTurso(false)).then(() => {
             syncCompleted = true;
             updateInteractivity();
         });
