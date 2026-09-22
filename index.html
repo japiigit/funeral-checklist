@@ -258,7 +258,8 @@
 
         let isInitializing = true;
 
-        // Fetch state from Turso
+   
+   // Fetch state from Turso
         async function loadStateFromTurso(isBackground = false) {
             try {
                 const response = await fetch(TURSO_URL, {
@@ -284,7 +285,6 @@
                 const rows = result.results[0].response.result.rows;
                 const stateMap = {};
                 rows.forEach(row => {
-                    // row[0] is id, row[1] is completed (0 or 1)
                     stateMap[row[0].value] = row[1].value === 1 || row[1].value === true;
                 });
 
@@ -333,12 +333,7 @@
                             { 
                                 type: "execute", 
                                 stmt: { 
-                                    sql: "INSERT INTO checklist (id, completed) VALUES (?, ?) ON CONFLICT(id) DO UPDATE SET completed = ?;",
-                                    args: [
-                                        { type: "text", value: id },
-                                        { type: "integer", value: val },
-                                        { type: "integer", value: val }
-                                    ]
+                                    sql: `INSERT INTO checklist (id, completed) VALUES ('${id}', ${val}) ON CONFLICT(id) DO UPDATE SET completed = ${val};`
                                 } 
                             },
                             { type: "close" }
@@ -358,6 +353,7 @@
                 syncStatus.textContent = "❌ Failed to save change.";
             }
         }
+        
         checkboxes.forEach(cb => {
             cb.addEventListener('change', (e) => {
                 if (isInitializing) return;
