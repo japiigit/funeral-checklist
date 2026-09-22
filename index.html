@@ -33,6 +33,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
@@ -41,6 +43,23 @@
             font-size: 1.1rem;
             margin: 0;
             font-weight: 600;
+        }
+
+        .sticky-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .sticky-nav-controls select {
+            padding: 7px 10px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: #1e293b;
+            color: white;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
 
         .sticky-nav a {
@@ -430,7 +449,22 @@
 
     <div class="sticky-nav">
         <h1>🕊️ The Exit of an Icon — Planning Hub</h1>
-        <a href="https://docs.google.com/document/d/1vCGN_L9oiA9ro-gZtlC7gnzzCVnK0KlvuXml4kFNcNM/edit?usp=sharing" target="_blank">📄 View Program of Events</a>
+        <div class="sticky-nav-controls">
+            <select id="sibling-filter">
+                <option value="">👥 All items</option>
+                <option value="Agatha">Agatha</option>
+                <option value="Vero">Vero</option>
+                <option value="Joe">Joe</option>
+                <option value="John">John</option>
+                <option value="Tina">Tina</option>
+                <option value="Inno">Inno</option>
+                <option value="Jojo">Jojo</option>
+                <option value="Okosite">Okosite</option>
+                <option value="MummyGO">MummyGO</option>
+                <option value="Minkala">Minkala</option>
+            </select>
+            <a href="https://docs.google.com/document/d/1vCGN_L9oiA9ro-gZtlC7gnzzCVnK0KlvuXml4kFNcNM/edit?usp=sharing" target="_blank">📄 View Program of Events</a>
+        </div>
     </div>
 
     <div id="auth-bar" class="auth-bar">
@@ -1825,6 +1859,9 @@
                 });
 
                 updateProgress();
+                if (typeof applyFilters === 'function') {
+                    applyFilters();
+                }
                 if (!isBackground) {
                     syncStatus.textContent = "🟢 Connected to Turso Database.";
                 }
@@ -2001,6 +2038,9 @@
                 const names = Array.from(checked).map(c => c.value);
 
                 updateResponsibleSummary(id);
+                if (typeof applyFilters === 'function') {
+                    applyFilters();
+                }
                 lastInteractionTime[id] = Date.now(); // Mark interaction immediately
 
                 if (detailSaveTimers[`responsible-${id}`]) {
@@ -2030,6 +2070,7 @@
         const searchInput = document.getElementById('search-input');
         const noResults = document.getElementById('no-results');
         const cards = document.querySelectorAll('.card');
+        const siblingFilter = document.getElementById('sibling-filter');
 
         function escapeRegExp(str) {
             return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -2048,8 +2089,9 @@
             label.innerHTML = original.replace(regex, '<mark>$1</mark>');
         }
 
-        searchInput.addEventListener('input', () => {
+        function applyFilters() {
             const query = searchInput.value.trim();
+            const sibling = siblingFilter.value;
             let anyVisible = false;
 
             cards.forEach(card => {
@@ -2060,11 +2102,19 @@
                     const responsibleSummary = li.querySelector('.responsible-summary');
                     const text = label.dataset.original || label.textContent;
                     const detailText = detailInput ? detailInput.value : '';
-                    const responsibleText = responsibleSummary ? responsibleSummary.textContent : '';
-                    const matches = !query
+                    const id = label.getAttribute('for');
+
+                    const searchMatches = !query
                         || text.toLowerCase().includes(query.toLowerCase())
                         || detailText.toLowerCase().includes(query.toLowerCase())
-                        || responsibleText.toLowerCase().includes(query.toLowerCase());
+                        || (responsibleSummary && responsibleSummary.textContent.toLowerCase().includes(query.toLowerCase()));
+
+                    const assignedNames = Array.from(
+                        document.querySelectorAll(`.responsible-checkbox[data-id="${id}"]:checked`)
+                    ).map(cb => cb.value);
+                    const siblingMatches = !sibling || assignedNames.includes(sibling);
+
+                    const matches = searchMatches && siblingMatches;
                     li.style.display = matches ? '' : 'none';
                     if (matches) {
                         cardHasMatch = true;
@@ -2075,14 +2125,17 @@
 
                 card.style.display = cardHasMatch ? '' : 'none';
 
-                // Auto-expand cards with matches while searching, restore collapsed state when cleared
-                if (query) {
+                // Auto-expand cards with matches while filtering, restore collapsed state when cleared
+                if (query || sibling) {
                     if (cardHasMatch) card.classList.remove('collapsed');
-                } 
+                }
             });
 
-            noResults.style.display = (!anyVisible && query) ? 'block' : 'none';
-        });
+            noResults.style.display = (!anyVisible && (query || sibling)) ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        siblingFilter.addEventListener('change', applyFilters);
 
         function updateProgress() {
             const total = statusButtons.length;
