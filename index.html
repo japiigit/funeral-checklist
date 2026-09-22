@@ -114,6 +114,67 @@
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 10px;
             font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .card h3 .chevron {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .card.collapsed h3 {
+            border-bottom-color: transparent;
+        }
+
+        .card.collapsed h3 .chevron {
+            transform: rotate(-90deg);
+        }
+
+        .card.collapsed ul.checklist {
+            display: none;
+        }
+
+        .search-container {
+            margin-bottom: 25px;
+        }
+
+        .search-container input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .no-results {
+            text-align: center;
+            color: #94a3b8;
+            padding: 10px 0 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        mark {
+            background-color: #fef08a;
+            color: inherit;
+            border-radius: 3px;
+            padding: 0 2px;
         }
 
         ul.checklist {
@@ -186,6 +247,11 @@
             <p>In Loving Memory of Papa • September 18, 2026</p>
         </div>
 
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="🔍 Search checklist items...">
+        </div>
+        <div id="no-results" class="no-results">No matching items found.</div>
+
         <div class="progress-container">
             <div id="progress-bar" class="progress-bar"></div>
         </div>
@@ -193,7 +259,7 @@
 
         <!-- Checklist Sections -->
       <div class="card">
-    <h3>1. Pre-Event Planning & Approvals</h3>
+    <h3><span>1. Pre-Event Planning & Approvals</span><span class="chevron">▾</span></h3>
     <ul class="checklist">
         <li><input type="checkbox" id="item-1" data-id="item-1"><label for="item-1">Conclude on casket</label></li>
         <li><input type="checkbox" id="item-2" data-id="item-2"><label for="item-2">Conclude on ambulance</label></li>
@@ -207,7 +273,7 @@
 </div>
 
         <div class="card">
-            <h3>2. Program Booklet Printing & Media</h3>
+            <h3><span>2. Program Booklet Printing & Media</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
                 <li><input type="checkbox" id="item-9" data-id="item-9"><label for="item-9">Review complete booklet draft with family members</label></li>
                 <li><input type="checkbox" id="item-10" data-id="item-10"><label for="item-10">Send finalized booklet layout to the printer</label></li>
@@ -217,7 +283,7 @@
         </div>
 
         <div class="card">
-            <h3>3. Wake Keep / Service of Songs (Friday, Oct 2, 2026)</h3>
+            <h3><span>3. Wake Keep / Service of Songs (Friday, Oct 2, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
                 <li><input type="checkbox" id="item-13" data-id="item-13"><label for="item-13">Confirm venue setup and sound system</label></li>
                 <li><input type="checkbox" id="item-14" data-id="item-14"><label for="item-14">Confirm officiating priest or catechist for opening prayers and exhortation</label></li>
@@ -228,7 +294,7 @@
         </div>
 
         <div class="card">
-            <h3>4. Requiem Mass (Saturday, Oct 3, 2026)</h3>
+            <h3><span>4. Requiem Mass (Saturday, Oct 3, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
                 <li><input type="checkbox" id="item-18" data-id="item-18"><label for="item-18">Confirm time and arrival of casket at Youth Center Catholic</label></li>
                 <li><input type="checkbox" id="item-19" data-id="item-19"><label for="item-19">Assign family readers for First Reading, Second Reading, and Prayers of the Faithful</label></li>
@@ -239,7 +305,7 @@
         </div>
 
         <div class="card">
-            <h3>5. Village Internment & Reception (Saturday, Oct 3, 2026)</h3>
+            <h3><span>5. Village Internment & Reception (Saturday, Oct 3, 2026)</span><span class="chevron">▾</span></h3>
             <ul class="checklist">
                 <li><input type="checkbox" id="item-23" data-id="item-23"><label for="item-23">Arrange transportation / convoy logistics from Youth Center Catholic to the village</label></li>
                 <li><input type="checkbox" id="item-24" data-id="item-24"><label for="item-24">Prepare graveside site at the country home / family compound</label></li>
@@ -287,10 +353,10 @@
                 }
 
                 const rows = result.results[0].response.result.rows;
-            const stateMap = {};
-rows.forEach(row => {
-    stateMap[row[0].value] = Number(row[1].value) === 1;
-});
+                const stateMap = {};
+                rows.forEach(row => {
+                    stateMap[row[0].value] = Number(row[1].value) === 1;
+                });
 
                 checkboxes.forEach(cb => {
                     const id = cb.getAttribute('data-id');
@@ -376,6 +442,64 @@ rows.forEach(row => {
 
                 saveStateToTurso(id, isChecked);
             });
+        });
+
+        // Collapsible sections
+        document.querySelectorAll('.card h3').forEach(h3 => {
+            h3.addEventListener('click', () => {
+                h3.closest('.card').classList.toggle('collapsed');
+            });
+        });
+
+        // Search / filter
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+        const cards = document.querySelectorAll('.card');
+
+        function escapeRegExp(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function highlight(label, query) {
+            if (!label.dataset.original) {
+                label.dataset.original = label.textContent;
+            }
+            const original = label.dataset.original;
+            if (!query) {
+                label.innerHTML = original;
+                return;
+            }
+            const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+            label.innerHTML = original.replace(regex, '<mark>$1</mark>');
+        }
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim();
+            let anyVisible = false;
+
+            cards.forEach(card => {
+                let cardHasMatch = false;
+                card.querySelectorAll('ul.checklist li').forEach(li => {
+                    const label = li.querySelector('label');
+                    const text = label.dataset.original || label.textContent;
+                    const matches = !query || text.toLowerCase().includes(query.toLowerCase());
+                    li.style.display = matches ? '' : 'none';
+                    if (matches) {
+                        cardHasMatch = true;
+                        anyVisible = true;
+                    }
+                    highlight(label, query);
+                });
+
+                card.style.display = cardHasMatch ? '' : 'none';
+
+                // Auto-expand cards with matches while searching, restore collapsed state when cleared
+                if (query) {
+                    if (cardHasMatch) card.classList.remove('collapsed');
+                } 
+            });
+
+            noResults.style.display = (!anyVisible && query) ? 'block' : 'none';
         });
 
         function updateProgress() {
