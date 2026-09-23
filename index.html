@@ -388,37 +388,37 @@
         }
 
         .auth-bar {
-            background-color: #fef9c3;
-            border-bottom: 1px solid #eab308;
-            padding: 10px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: #713f12;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background-color: rgba(234, 179, 8, 0.15);
+            border: 1px solid #eab308;
+            font-size: 0.8rem;
+            color: #fde68a;
+            white-space: nowrap;
         }
 
         .auth-bar.unlocked {
-            background-color: #dcfce7;
-            border-bottom-color: #22c55e;
-            color: #166534;
+            background-color: rgba(34, 197, 94, 0.15);
+            border-color: #22c55e;
+            color: #bbf7d0;
         }
 
         .auth-bar input[type="password"] {
-            padding: 6px 10px;
+            padding: 4px 8px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            width: 140px;
+            font-size: 0.8rem;
+            width: 100px;
         }
 
         .auth-bar button {
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 6px;
             border: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
         }
@@ -434,13 +434,15 @@
 
         .auth-bar .lock-btn {
             background-color: transparent;
-            color: #166534;
+            color: #bbf7d0;
             text-decoration: underline;
+            padding: 0;
+            font-size: 0.8rem;
         }
 
         .auth-bar .auth-error {
-            color: #b91c1c;
-            font-size: 0.85rem;
+            color: #fca5a5;
+            font-size: 0.75rem;
             display: none;
         }
     </style>
@@ -463,15 +465,14 @@
                 <option value="MummyGO">MummyGO</option>
                 <option value="Minkala">Minkala</option>
             </select>
+            <div id="auth-bar" class="auth-bar">
+                <span id="auth-label">🔒 Read-only</span>
+                <input type="password" id="auth-passcode" placeholder="Passcode" autocomplete="off">
+                <button type="button" class="unlock-btn" id="auth-unlock-btn">Unlock</button>
+                <span id="auth-error" class="auth-error">Wrong passcode.</span>
+            </div>
             <a href="https://docs.google.com/document/d/1vCGN_L9oiA9ro-gZtlC7gnzzCVnK0KlvuXml4kFNcNM/edit?usp=sharing" target="_blank">📄 View Program of Events</a>
         </div>
-    </div>
-
-    <div id="auth-bar" class="auth-bar">
-        <span id="auth-label">🔒 Read-only mode — enter the family passcode to make changes:</span>
-        <input type="password" id="auth-passcode" placeholder="Passcode" autocomplete="off">
-        <button type="button" class="unlock-btn" id="auth-unlock-btn">Unlock editing</button>
-        <span id="auth-error" class="auth-error">Incorrect passcode.</span>
     </div>
 
     <div class="container">
@@ -1670,7 +1671,7 @@
         function renderAuthBar() {
             if (authenticated) {
                 authBar.classList.add('unlocked');
-                authLabel.innerHTML = '🔓 Editing unlocked. <button type="button" class="lock-btn" id="auth-lock-btn">Lock editing</button>';
+                authLabel.innerHTML = '🔓 Unlocked · <button type="button" class="lock-btn" id="auth-lock-btn">Lock</button>';
                 authInput.style.display = 'none';
                 authUnlockBtn.style.display = 'none';
                 authError.style.display = 'none';
@@ -1683,7 +1684,7 @@
                 });
             } else {
                 authBar.classList.remove('unlocked');
-                authLabel.textContent = '🔒 Read-only mode — enter the family passcode to make changes:';
+                authLabel.textContent = '🔒 Read-only';
                 authInput.style.display = '';
                 authUnlockBtn.style.display = '';
             }
